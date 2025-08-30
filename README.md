@@ -1,16 +1,33 @@
-# News Bias Analysis – Technical Documentation
+# News Bias Analysis
 
-This app lets users paste or upload a news article, then:
-- Estimate bias intensity (neutral, slightly-biased, highly-biased) using a lightweight Naive Bayes classifier
-- Generate a concise summary via Gemini (if configured) or an extractive fallback
+Live Demo: https://v0-news-bias-analysis.vercel.app/
 
-It is built with the Next.js App Router and Shadcn UI components.
+A minimal, fast web app to analyze a pasted/uploaded article for bias intensity and generate a concise summary. Built with Next.js App Router and Shadcn UI.
 
-- UI: app/page.tsx
-- Bias API: app/api/bias/route.ts
-- Summary API: app/api/summarize/route.ts
+- Features
+  - Paste or upload .txt, then analyze in one click
+  - Bias intensity via lightweight Naive Bayes (cached, in-memory)
+  - Gemini summaries via AI SDK (with extractive fallback if no key)
+  - Mobile-first UI with a clean, minimal aesthetic
 
-Note: The Hugging Face dataset newsmediabias/news-bias-full-data is gated (terms required). Without a token, the app trains on a balanced local seed so results vary, but they won’t match the full dataset’s performance.
+Quick Links:
+- Setup (Env Vars) — see “Quick Start” and “Environment Variables”
+- APIs — POST /api/bias and POST /api/summarize
+- Troubleshooting — common issues and fixes
+
+## Table of Contents
+- Live Demo
+- Quick Start
+- Environment Variables
+- APIs
+  - /api/bias
+  - /api/summarize
+- UI (app/page.tsx)
+- Design Notes
+- Caching & Performance
+- Troubleshooting
+- cURL Examples
+- Roadmap
 
 ----------------------------------------------------------------
 
